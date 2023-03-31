@@ -9,7 +9,7 @@ from io import BytesIO
 from starlette.responses import StreamingResponse
 
 
-client = pymongo.MongoClient("mongodb+srv://ymuthuvijay5:muthuselvapubg@colearn.tbzflt2.mongodb.net/test")
+client = pymongo.MongoClient("mongodb+srv://ymuthuvijay5:muthuselvapubg@colearn.tbzflt2.mongodb.net/?retryWrites=true&w=majority")
 db = client["colearn"]
 
 

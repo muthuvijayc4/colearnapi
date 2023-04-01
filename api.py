@@ -136,9 +136,9 @@ async def get_files(roomID: int):
 
 
 @app.get("/getfile")
-async def get_file(filename: str):
+async def get_file(filename: str, roomID: int):
     collection = db["files"]
-    file = collection.find_one({"filename": filename})
+    file = collection.find_one({"filename": filename, "roomID": roomID})
     contents = file["contents"]
     file_like = BytesIO(contents)
     return StreamingResponse(file_like, media_type="application/octet-stream", headers={"Content-Disposition": f"attachment;filename={file['filename']}"})
